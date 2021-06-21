@@ -16,9 +16,8 @@ const GlobalStyles = createGlobalStyle`
    }
 `
 
-
 export const wrapRootElement = ({ element }) => (
-   < ThemeProvider theme={ theme } >
+   <ThemeProvider theme={ theme } >
       <GlobalStyles />
       { element }
    </ThemeProvider >
