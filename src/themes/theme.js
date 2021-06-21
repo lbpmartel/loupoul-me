@@ -1,10 +1,16 @@
+
+
 const Theme = {
    fonts: {
       main: "Muli, sans-serif",
       code: "Roboto Mono, monospace",
    },
    colors: {
-
+      "Celadon Blue": "2b729c",
+      "Olivine": "a8c08e",
+      "White": "ffffff",
+      "Opal": "b1c5c3",
+      "Black Chocolate": "141301"
    },
    breakpoints: {
       mobile: "only screen and (max-width: 50rem)",
