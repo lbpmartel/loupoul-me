@@ -5,17 +5,15 @@ export const IntroContainerWrapper = styled.div`
    grid-row: 2 / 3;
    display: flex;
    flex-direction: row;
-
+   justify-content: space-between;
 `
 
 export const IntroImageWrapper = styled.div`
    //grid-column: 2 / span 4;
-   width: 33%;
    padding-right: 20px;
 `
 export const IntroTextWrapper = styled.div`
    //grid-column: 5 / span 8;
-   width: 66%;
    display: flex;
    flex-direction: column;
 `

@@ -8,9 +8,9 @@ export const IntroPhoto = ({ fixed }) => {
 
    const data = useStaticQuery(graphql`
       {
-         file(relativePath: { eq: "louis.jpg" }) {
+         file(relativePath: { eq: "louis_cropped_2.jpg" }) {
             childImageSharp {
-               gatsbyImageData(layout: FIXED)
+               gatsbyImageData(layout: FIXED, width: 320)
             }
          }
       }
@@ -18,11 +18,12 @@ export const IntroPhoto = ({ fixed }) => {
 
    return (
       <IntroImageWrapper>
-         <GatsbyImage image={ data.file.childImageSharp.gatsbyImageData } alt="loupoul" style={ {
-            width: "100%",
-            height: "100%",
-            borderRadius: "50%"
-         } } />
+         <GatsbyImage image={ data.file.childImageSharp.gatsbyImageData }
+            alt="loupoul"
+            objectFit="cover"
+            style={ {
+               borderRadius: "50%"
+            } } />
       </IntroImageWrapper>
    )
 }

@@ -13,5 +13,5 @@ export const BodyBackgroundWrapper = styled.div`
    grid-row: 1 / auto;
    position: relative;
    background: #FAFAFA;
-   z-index: -1;
+   z-index: -2;
 `
