@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 export const IntroContainerWrapper = styled.div`
-   grid-column: 2 / span 12;
+   grid-column: 2 / span 10;
    grid-row: 2 / 3;
    display: flex;
    flex-direction: row;

@@ -20,7 +20,6 @@ export const IntroPhoto = ({ fixed }) => {
       <IntroImageWrapper>
          <GatsbyImage image={ data.file.childImageSharp.gatsbyImageData }
             alt="loupoul"
-            objectFit="cover"
             style={ {
                borderRadius: "50%"
             } } />
