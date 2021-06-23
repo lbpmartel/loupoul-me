@@ -26,9 +26,6 @@ export const Footer = () => {
                   <img src={ data.github.publicURL } alt="GitHub logo" />
                </a>
             </FooterSocialIcons>
-            <p>
-               
-            </p>
          </FooterSocialWrapper>
       </FooterWrapper>
    )

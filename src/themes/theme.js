@@ -10,7 +10,9 @@ const Theme = {
       "Olivine": "a8c08e",
       "White": "ffffff",
       "Opal": "b1c5c3",
-      "Black Chocolate": "141301"
+      "Black Chocolate": "141301",
+      "topBackground": "ABD8D3",
+      "bodyBackground": "FAFAFA"
    },
    breakpoints: {
       mobile: "only screen and (max-width: 50rem)",
