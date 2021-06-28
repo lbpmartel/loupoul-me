@@ -1,4 +1,5 @@
 export * from "./BigCard.js";
+export * from "./CardsSection.js";
 export * from "./Container.js";
 export * from "./Footer.js";
 export * from "./Intro.js";

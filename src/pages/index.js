@@ -1,10 +1,14 @@
 import React from "react"
-import { BigCard, Container } from "../components"
+import { BigCard, CardsSection, Container, TopBackground, Intro } from "../components"
 
 const IndexPage = () => {
    return (
       <Container>
-         <BigCard></BigCard>
+         <TopBackground />
+         <Intro />
+         <CardsSection>
+            <BigCard />
+         </CardsSection>
       </Container>
    )
 }
