@@ -4,7 +4,7 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import { useStaticQuery, graphql } from "gatsby"
 
 
-export const IntroPhoto = ({ fixed }) => {
+export const IntroPhoto = () => {
 
    const data = useStaticQuery(graphql`
       {

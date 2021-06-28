@@ -52,7 +52,7 @@ module.exports = {
             fonts: [
                `roboto mono`,
                `muli\:400,400i,700,700i`,
-               `heebo`
+               `heebo\:400,700`
             ],
             display: "swap",
          },
