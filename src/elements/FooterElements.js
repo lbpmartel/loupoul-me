@@ -5,7 +5,7 @@ export const FooterWrapper = styled.footer`
    min-height: 11.25rem;
    padding: 3rem 0;
    display: flex;
-   justify-content: center;
+   justify-content: center;   
    align-items: flex-start;
 
    @media ${ props => props.theme.breakpoints.tablet } {
