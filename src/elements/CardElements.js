@@ -2,8 +2,7 @@ import styled from "styled-components"
 
 export const CardsContainer = styled.main`
    grid-column: 2 / span 10;
-   grid-row: 3 / auto;
-   background-color: ${ props => props.theme.colors.bodyBackground };
+   grid-row: 3 / span 2;
 
    @media ${ props => props.theme.breakpoints.tablet } {
       grid-column:2 / span 4;
@@ -21,4 +20,12 @@ export const BigCardWrapper = styled.div`
    @media ${ props => props.theme.breakpoints.tablet } {
       grid-column:2 / span 4;
    }
+`
+
+export const BlogPreviewCardWrapper = styled.div`
+   margin-top: 2rem;
+   padding: 1rem;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
 `
