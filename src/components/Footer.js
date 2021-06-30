@@ -1,6 +1,6 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import { FooterWrapper, FooterSocialIcons, FooterSocialWrapper } from "../elements"
+import { FooterWrapper, FooterSocialIcons, FooterSocialWrapper, P } from "../elements"
 
 export const Footer = () => {
 
@@ -14,6 +14,11 @@ export const Footer = () => {
          }
       }
    `)
+   const generateCopyrightTextWithYear = () => {
+      let newDate = new Date()
+      let year = newDate.getFullYear();
+      return `© ${ year } Louis-Bernard Poulin Martel. All right reserved.`
+   }
 
    return (
       <FooterWrapper>
@@ -26,6 +31,7 @@ export const Footer = () => {
                   <img src={ data.github.publicURL } alt="GitHub logo" />
                </a>
             </FooterSocialIcons>
+            <P size="xSmall" color="dark3">{ generateCopyrightTextWithYear() }</P>
          </FooterSocialWrapper>
       </FooterWrapper>
    )
