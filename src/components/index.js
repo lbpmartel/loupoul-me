@@ -7,4 +7,5 @@ export * from "./Footer.js";
 export * from "./Intro.js";
 export * from "./IntroPhoto.js";
 export * from "./Nav.js";
+export * from "./Pagination.js";
 export * from "./TopBackground.js";
