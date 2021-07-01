@@ -31,6 +31,7 @@ module.exports = {
       `gatsby-plugin-sharp`,
       `gatsby-transformer-sharp`,
       `gatsby-plugin-mdx`,
+      `gatsby-plugin-image`,
       {
          resolve: `gatsby-plugin-mdx`,
          options: {
@@ -51,6 +52,18 @@ module.exports = {
             fonts: [
                `roboto mono`,
                `muli\:400,400i,700,700i`,
+               `heebo\:400,700`
+            ],
+            display: "swap",
+         },
+      },
+      {
+         resolve: `gatsby-plugin-google-fonts`,
+         options: {
+            fonts: [
+               `roboto mono`,
+               `muli\:400,400i,700,700i`,
+               `heebo`
             ],
             display: "swap",
          },
