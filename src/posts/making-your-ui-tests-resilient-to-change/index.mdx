@@ -144,25 +144,12 @@ Et cela aiderait à assurer que vous testz votre application de la manière la p
 
 Parfois, on ne peut pas sélectionner un élément par aucune autre requête. Pour ces cas-là, il est recommandé d'utiliser `data-testid` (cependant, il est important de vérifier que vous n'êtes pas en train d'oublier d'utiliser un réel attribut de `rôle` en premier lieu).
 
-Plusieurs personnes qui rencontrent cette situation se demandent pourquoi une requête `getByClassName` n'existe pas. 
+Plusieurs personnes qui rencontrent cette situation se demandent pourquoi une requête `getByClassName` n'existe pas. Ce wue je n'aime pas en utilisant les __class names__ pour mes sélecteurs c'est qu'en théorie nous pensons aux noms des __class names__  en fonction de leur style. Alors si on se met à ajouter un tas de __class names__ qui ne sont pas pour le style, ça rend plis difficile de savoir à quoi servent ces __class names__ et si nous pouvons les retirer.
 
-Many people who hit this situation, wonder why we don't include a
-`getByClassName` query. What I don't like about using class names for my
-selectors is that normally we think of class names as a way to style things. So
-when we start adding a bunch of class names that are not for that purpose it
-makes it even **_harder_** to know what those class names are for and when we
-can remove class names.
+Puis, si nous essayons simplement de reutiliser des __class names__ que nous utilisons déjà pour le style, nous rencontrerons des problèmes comme celui du bouton ci-haut. _Si tu dois modifier ton test lors d'un refactoring ou d'un nouveau développement, c'est une indication d'un test faible_. Le réel problème c'est que la relation entre le test et le code source est trop implicite. Nous pourrions solitionner ce problème si nous faisions en sorte de **la rendre plus explicite.**
 
-And if we simply try to reuse class names that we're already just using for
-styling then we run into issues like the button up above. And _any time you have
-to change your tests when you refactor or add a feature, that's an indication of
-a brittle test_. The core issue is that the relationship between the test and
-the source code is too implicit. We can overcome this issue if we **make that
-relationship more explicit.**
+Si nous pouvions ajouter des meta données à l'élément que nous tentons de sélectionner, ça réglerait le problème. Et bien devinez quoi, il existe un API exprès! C'est les attributs `data-`! Par exemple :
 
-If we could add some metadata to the element we're trying to select that would
-solve the problem. Well guess what! There's actually an existing API for this!
-It's `data-` attributes! For example:
 
 ```jsx
 function UsernameDisplay({ user }) {
@@ -170,16 +157,25 @@ function UsernameDisplay({ user }) {
 }
 ```
 
+Et ensuite notre test pourrait faire :
 
-And then our test can say:
 
 ```javascript
 const usernameEl = getByTestId("username");
 ```
 
-This is great for
-[end to end tests](https://github.com/kentcdodds/jest-cypress-react-babel-webpack/blob/1c842dff85cd83953e86a6f1a48653b15fb3a4d5/cypress/e2e/register.js#L20)
-as well. So I suggest that you use it for that too! However, some folks have
+C'est également intéressant pour les 
+[tests end to end](https://github.com/kentcdodds/jest-cypress-react-babel-webpack/blob/1c842dff85cd83953e86a6f1a48653b15fb3a4d5/cypress/e2e/register.js#L20).
+
+Aloes je propose que vous l'utilisiez pour ces tests là aussi! Par contre, certaines personnes m'ont mentionné qu'ils avaient des doutes quant à mettre c'est attributs en production... Si c'est vous, considrerez
+
+
+
+
+
+
+
+So I suggest that you use it for that too! However, some folks have
 expressed to me concern about shipping these attributes to production. If that's
 you, please really consider whether it's actually a problem for you (because
 honestly it's probably not as big a deal as you think it is). If you really want
