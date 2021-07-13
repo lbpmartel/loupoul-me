@@ -13,11 +13,9 @@ export const IntroContainerWrapper = styled.div`
 `
 
 export const IntroImageWrapper = styled.div`
-   //grid-column: 2 / span 4;
    padding-right: 20px;
 `
 export const IntroTextWrapper = styled.div`
-   //grid-column: 5 / span 8;
    display: flex;
    flex-direction: column;
 `
