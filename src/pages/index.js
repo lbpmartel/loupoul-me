@@ -1,7 +1,7 @@
 import React from "react"
 import {
    BigCard,
-   BlogPreviewCard,
+   BlogPostsBigCard,
    CardsSection,
    Container,
    TopBackground,
@@ -19,15 +19,11 @@ const IndexPage = () => {
          <CardsSection>
             <BigCard>
             </BigCard>
-            <BigCard>
-               <BlogPreviewCard
-                  title="Titre test"
-                  excerpt="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation"
-                  slug="/test" />
-            </BigCard>
+            <BlogPostsBigCard />
          </CardsSection>
       </Container>
    )
 }
+
 
 export default IndexPage;
