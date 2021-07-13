@@ -15,5 +15,6 @@ Au travail, lorsque nous avions à implémenter des tests d'intégration pour no
 Pour ajouter un peu de contenu, j'ai décidé de devenir un contributeur et de traduire certains de ses articles de blog qui m'ont aidé dans mon apprentissage des tests d'intégration (je fais ceci à temps perdu directement sur mon téléphone, entre les cours de soir et les couches à changer).
 
 # Ajout potentiels
-J'ai déjà utilisé Nightwatch pour des tests e2e au travail, mais j'aimerais apprendre à utiliser Cypress, qui me semble être plus largement utilisé dabs l'industrie. Cette page pourrait devenir un sandbox pour mon apprentissage de Cypress.
+- J'ai déjà utilisé Nightwatch pour des tests e2e au travail, mais j'aimerais apprendre à utiliser Cypress, qui me semble être plus largement utilisé dabs l'industrie. Cette page pourrait devenir un sandbox pour mon apprentissage de Cypress.
 
+- Ajouter une traduction en anglais pourrait être un ajout intéressant...
