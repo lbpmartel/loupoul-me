@@ -1,20 +1,19 @@
 ---
-slug: 'common-mistakes-with-react-testing-library'
-title: 'Common mistakes with React Testing Library'
-date: '2020-05-04'
-author: 'Kent C. Dodds'
-description:
-  '_Some mistakes I frequently see people making with React Testing Library._'
+slug: "common-mistakes-with-react-testing-library"
+title: "Erreurs fréquentes avec React Testing Library"
+date: "2020-05-04"
+author: "Kent C. Dodds"
+description: "Quelques erreurs que les gens font fréquemment en utilisant React Testing Library."
 categories:
-  - 'testing'
+  - "testing"
 keywords:
-  - 'react'
-  - 'testing'
-  - 'react testing library'
-  - 'dom testing library'
-  - 'async'
-bannerUrl: 'https://res.cloudinary.com/kentcdodds-com/image/upload/v1625032606/kentcdodds.com/content/blog/common-mistakes-with-react-testing-library/banner.jpg'
-bannerCredit: 'Photo by [Sarah Kilian](https://unsplash.com/photos/52jRtc2S_VE)'
+  - "react"
+  - "testing"
+  - "react testing library"
+  - "dom testing library"
+  - "async"
+bannerUrl: "https://res.cloudinary.com/kentcdodds-com/image/upload/v1625032606/kentcdodds.com/content/blog/common-mistakes-with-react-testing-library/banner.jpg"
+bannerCredit: "Photo by [Sarah Kilian](https://unsplash.com/photos/52jRtc2S_VE)"
 ---
 
 Current Available Translations:
@@ -26,14 +25,14 @@ Salut 👋 J'ai créé la React Testing Library parce que je n'étais pas satisf
 
 Nous avons apporté différents changements à l'API depuis le debut, et nous avons découvert des façons de faire sous-optimales. Malgré nos efforts à documenter les « meilleures façons de faire » pour utiliser les outils que l'on propose, je vois encore des articles de blog et des tests écrits en suivant ces façons de faire sous-optimales, et j'aimerais passer en revue quelques une d'entre elles, expliquer pourquoi elles ne sont pas idéales et de quelle façon ameliorer vos tests pour eviter ces pièges de conception.
 
-
 > Note: Je vais classifier chacune d'elles selon leur ordre d'importance :
 >
 > - basse: ceci n'est principalement que mon opinion
 
-
 this is mostly just my opinion, feel free to ignore and you'll probably
->   be fine.
+
+> be fine.
+>
 > - medium: you might experience bugs, lose confidence, or be doing work you
 >   don't need to
 > - high: definitely listen to this advice! You're likely missing confidence or
@@ -61,7 +60,7 @@ const wrapper = render(<Example prop="1" />)
 wrapper.rerender(<Example prop="2" />)
 
 // ✅
-const {rerender} = render(<Example prop="1" />)
+const { rerender } = render(<Example prop="1" />)
 rerender(<Example prop="2" />)
 ```
 
@@ -78,12 +77,12 @@ anyway.
 
 ```javascript
 // ❌
-import {render, screen, cleanup} from '@testing-library/react'
+import { render, screen, cleanup } from "@testing-library/react"
 
 afterEach(cleanup)
 
 // ✅
-import {render, screen} from '@testing-library/react'
+import { render, screen } from "@testing-library/react"
 ```
 
 For a long time now `cleanup` happens automatically (supported for most major
@@ -98,12 +97,12 @@ testing frameworks) and you no longer need to worry about it.
 
 ```javascript
 // ❌
-const {getByRole} = render(<Example />)
-const errorMessageNode = getByRole('alert')
+const { getByRole } = render(<Example />)
+const errorMessageNode = getByRole("alert")
 
 // ✅
 render(<Example />)
-const errorMessageNode = screen.getByRole('alert')
+const errorMessageNode = screen.getByRole("alert")
 ```
 
 `screen`
@@ -112,7 +111,7 @@ const errorMessageNode = screen.getByRole('alert')
 comes from the same import statement you get `render` from:
 
 ```javascript
-import {render, screen} from '@testing-library/react'
+import { render, screen } from "@testing-library/react"
 ```
 
 The benefit of using `screen` is you no longer need to keep the `render` call
@@ -135,7 +134,7 @@ instead of `debug`
 > Importance: high
 
 ```javascript
-const button = screen.getByRole('button', {name: /disabled button/i})
+const button = screen.getByRole("button", { name: /disabled button/i })
 
 // ❌
 expect(button.disabled).toBe(true)
@@ -170,15 +169,15 @@ act(() => {
   render(<Example />)
 })
 
-const input = screen.getByRole('textbox', {name: /choose a fruit/i})
+const input = screen.getByRole("textbox", { name: /choose a fruit/i })
 act(() => {
-  fireEvent.keyDown(input, {key: 'ArrowDown'})
+  fireEvent.keyDown(input, { key: "ArrowDown" })
 })
 
 // ✅
 render(<Example />)
-const input = screen.getByRole('textbox', {name: /choose a fruit/i})
-fireEvent.keyDown(input, {key: 'ArrowDown'})
+const input = screen.getByRole("textbox", { name: /choose a fruit/i })
+fireEvent.keyDown(input, { key: "ArrowDown" })
 ```
 
 I see people wrapping things in `act` like this because they see these "act"
@@ -203,12 +202,12 @@ unnecessarily.**
 // ❌
 // assuming you've got this DOM to work with:
 // <label>Username</label><input data-testid="username" />
-screen.getByTestId('username')
+screen.getByTestId("username")
 
 // ✅
 // change the DOM to be accessible by associating the label and setting the type
 // <label for="username">Username</label><input id="username" type="text" />
-screen.getByRole('textbox', {name: /username/i})
+screen.getByRole("textbox", { name: /username/i })
 ```
 
 We maintain a page called
@@ -226,13 +225,13 @@ As a sub-section of "Using the wrong query" I want to talk about querying on the
 
 ```javascript
 // ❌
-const {container} = render(<Example />)
-const button = container.querySelector('.btn-primary')
+const { container } = render(<Example />)
+const button = container.querySelector(".btn-primary")
 expect(button).toHaveTextContent(/click me/i)
 
 // ✅
 render(<Example />)
-screen.getByRole('button', {name: /click me/i})
+screen.getByRole("button", { name: /click me/i })
 ```
 
 We want to ensure that your users can interact with your UI and if you query
@@ -249,10 +248,10 @@ everywhere.
 
 ```javascript
 // ❌
-screen.getByTestId('submit-button')
+screen.getByTestId("submit-button")
 
 // ✅
-screen.getByRole('button', {name: /submit/i})
+screen.getByRole("button", { name: /submit/i })
 ```
 
 If you don't query by the actual text, then you have to do extra work to make
@@ -296,7 +295,7 @@ screen.getByText(/hello world/i)
 // because the text is broken up by multiple elements. In this case, you can
 // provide a function for your text matcher to make your matcher more flexible.
 
-screen.getByRole('button', {name: /hello world/i})
+screen.getByRole("button", { name: /hello world/i })
 // ✅ works!
 ```
 
@@ -311,7 +310,7 @@ also log all the available roles you can query by!
 ```javascript
 // assuming we've got this DOM structure to work with
 // <button><span>Hello</span> <span>World</span></button>
-screen.getByRole('blah')
+screen.getByRole("blah")
 ```
 
 This will fail with the following error message:
@@ -383,10 +382,10 @@ accessibly or follow the WAI-ARIA practices. They often have
 
 ```javascript
 // ❌
-fireEvent.change(input, {target: {value: 'hello world'}})
+fireEvent.change(input, { target: { value: "hello world" } })
 
 // ✅
-userEvent.type(input, 'hello world')
+userEvent.type(input, "hello world")
 ```
 
 [`@testing-library/user-event`](https://github.com/testing-library/user-event)
@@ -413,11 +412,11 @@ use it's utilities over `fireEvent`.
 
 ```javascript
 // ❌
-expect(screen.queryByRole('alert')).toBeInTheDocument()
+expect(screen.queryByRole("alert")).toBeInTheDocument()
 
 // ✅
-expect(screen.getByRole('alert')).toBeInTheDocument()
-expect(screen.queryByRole('alert')).not.toBeInTheDocument()
+expect(screen.getByRole("alert")).toBeInTheDocument()
+expect(screen.queryByRole("alert")).not.toBeInTheDocument()
 ```
 
 The _only_ reason the `query*` variant of the queries is exposed is for you to
@@ -435,11 +434,11 @@ found.**
 ```javascript
 // ❌
 const submitButton = await waitFor(() =>
-  screen.getByRole('button', {name: /submit/i}),
+  screen.getByRole("button", { name: /submit/i })
 )
 
 // ✅
-const submitButton = await screen.findByRole('button', {name: /submit/i})
+const submitButton = await screen.findByRole("button", { name: /submit/i })
 ```
 
 Those two bits of code are basically equivalent (`find*` queries use `waitFor`
@@ -456,11 +455,11 @@ available right away.**
 ```javascript
 // ❌
 await waitFor(() => {})
-expect(window.fetch).toHaveBeenCalledWith('foo')
+expect(window.fetch).toHaveBeenCalledWith("foo")
 expect(window.fetch).toHaveBeenCalledTimes(1)
 
 // ✅
-await waitFor(() => expect(window.fetch).toHaveBeenCalledWith('foo'))
+await waitFor(() => expect(window.fetch).toHaveBeenCalledWith("foo"))
 expect(window.fetch).toHaveBeenCalledTimes(1)
 ```
 
@@ -479,12 +478,12 @@ async logic.
 ```javascript
 // ❌
 await waitFor(() => {
-  expect(window.fetch).toHaveBeenCalledWith('foo')
+  expect(window.fetch).toHaveBeenCalledWith("foo")
   expect(window.fetch).toHaveBeenCalledTimes(1)
 })
 
 // ✅
-await waitFor(() => expect(window.fetch).toHaveBeenCalledWith('foo'))
+await waitFor(() => expect(window.fetch).toHaveBeenCalledWith("foo"))
 expect(window.fetch).toHaveBeenCalledTimes(1)
 ```
 
@@ -503,14 +502,14 @@ one of the assertions do end up failing.
 ```javascript
 // ❌
 await waitFor(() => {
-  fireEvent.keyDown(input, {key: 'ArrowDown'})
-  expect(screen.getAllByRole('listitem')).toHaveLength(3)
+  fireEvent.keyDown(input, { key: "ArrowDown" })
+  expect(screen.getAllByRole("listitem")).toHaveLength(3)
 })
 
 // ✅
-fireEvent.keyDown(input, {key: 'ArrowDown'})
+fireEvent.keyDown(input, { key: "ArrowDown" })
 await waitFor(() => {
-  expect(screen.getAllByRole('listitem')).toHaveLength(3)
+  expect(screen.getAllByRole("listitem")).toHaveLength(3)
 })
 ```
 
@@ -533,10 +532,10 @@ for assertions only.**
 
 ```javascript
 // ❌
-screen.getByRole('alert', {name: /error/i})
+screen.getByRole("alert", { name: /error/i })
 
 // ✅
-expect(screen.getByRole('alert', {name: /error/i})).toBeInTheDocument()
+expect(screen.getByRole("alert", { name: /error/i })).toBeInTheDocument()
 ```
 
 This one's not really a big deal actually, but I thought I'd mention it and give
