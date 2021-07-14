@@ -14,14 +14,14 @@ export const BlogPostsBigCard = () => {
       <StaticQuery
          query={ graphql`
             query AllPostsQuery {
-               allMdx {
+               allMdx(sort: {fields: frontmatter___translation_date, order: DESC}) {
                   edges {
                      node {
                         frontmatter {
-                           slug  
+                           slug
                            title
-                           date
                            description
+                           translation_date
                         }
                      }
                   }
