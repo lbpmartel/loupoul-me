@@ -1,6 +1,6 @@
 import React from "react"
 import {
-   BigCard,
+   IntroBigCard,
    BlogPostsBigCard,
    CardsSection,
    Container,
@@ -17,8 +17,7 @@ const IndexPage = () => {
          <TopBackground />
          <Intro />
          <CardsSection>
-            <BigCard>
-            </BigCard>
+            <IntroBigCard />
             <BlogPostsBigCard />
          </CardsSection>
       </Container>
