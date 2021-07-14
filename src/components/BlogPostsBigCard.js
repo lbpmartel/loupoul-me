@@ -4,6 +4,8 @@ import {
    BlogPreviewCard,
 } from "../components"
 
+import { H2 } from "../elements"
+
 import { StaticQuery, graphql } from "gatsby"
 
 export const BlogPostsBigCard = () => {
@@ -28,6 +30,7 @@ export const BlogPostsBigCard = () => {
          ` }
          render={ data => (
             <BigCard>
+               <H2>Blog</H2>
                { data.allMdx.edges.map(post =>
                   <BlogPreviewCard
                      key={ post.node.frontmatter.slug }
