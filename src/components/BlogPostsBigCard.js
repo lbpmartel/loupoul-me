@@ -4,7 +4,7 @@ import {
    BlogPreviewCard,
 } from "../components"
 
-import { H2 } from "../elements"
+import { H2, P } from "../elements"
 
 import { StaticQuery, graphql } from "gatsby"
 
@@ -31,6 +31,7 @@ export const BlogPostsBigCard = () => {
          render={ data => (
             <BigCard>
                <H2>Blog</H2>
+               <P margin="1rem 0 1rem 0" size="small">Ces articles m'ont été utiles par le passé, et j'ai décidé de les traduire en français.</P>
                { data.allMdx.edges.map(post =>
                   <BlogPreviewCard
                      key={ post.node.frontmatter.slug }
