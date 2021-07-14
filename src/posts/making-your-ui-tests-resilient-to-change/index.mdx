@@ -2,18 +2,17 @@
 slug: making-your-ui-tests-resilient-to-change
 title: Rendre vos tests UI résilients aux changements
 date: "2019-10-07"
+translation-date: "2021-06-23"
 author: Kent C. Dodds
-traductor: Louis-Bernard Poulin Martel
-description: >-
-  Les tests d'interface utilisateur sont reconnus pour briser facilement. Voyons
-  comment nous pourrions améliorer ceci.
+translator: Louis-Bernard Poulin Martel
+description: "Les tests d'interface utilisateur sont reconnus pour briser facilement. Voyons comment nous pourrions améliorer ceci."
 keywords:
   - javascript
   - testing
   - Ui Testing
   - Unit Testing
   - Integration Testing
-banner: ./images/banner.jpg
+banner: https://res.cloudinary.com/kentcdodds-com/image/upload/v1625033134/kentcdodds.com/content/blog/making-your-ui-tests-resilient-to-change/banner.jpg
 bannerCredit: "Photo by [Warren Wong](https://unsplash.com/photos/tHiGKAJxaA8)"
 ---
 
@@ -48,7 +47,7 @@ const form = (
       </button>
     </div>
   </form>
-);
+)
 ```
 
 Si nous avions à tester ce formulaire, nous voudrions remplir le champ « username »,
@@ -57,9 +56,9 @@ nous aurions à rendre le formulaire et trouver les noeuds dans le document pour
 les utiliser. Voici ce que vous pourriez vouloir faire pour que cela se produise :
 
 ```js
-const usernameField = rootNode.querySelector(".username-field");
-const passwordField = rootNode.querySelector(".password-field");
-const submitButton = rootNode.querySelector(".btn");
+const usernameField = rootNode.querySelector(".username-field")
+const passwordField = rootNode.querySelector(".password-field")
+const submitButton = rootNode.querySelector(".btn")
 ```
 
 C'est ici que le problème entre en jeu. Qu'arrive-t-il lorsque l'on ajoute un autre
@@ -86,16 +85,16 @@ const form = (
       </button>
     </div>
   </form>
-);
+)
 ```
 
 Et bien, ça va briser nos tests. Mais ce serait assez simple à réparer, n'est-ce pas?
 
 ```js
 // changer ceci :
-const submitButton = rootNode.querySelector(".btn");
+const submitButton = rootNode.querySelector(".btn")
 // pour ceci :
-const submitButton = rootNode.querySelectorAll(".btn")[1];
+const submitButton = rootNode.querySelectorAll(".btn")[1]
 ```
 
 Et hop, tout est beau! Maintenant, si on commence à utiliser CSS-in-JS pour ajouter
@@ -108,7 +107,7 @@ nos tests les utilisent? Hmmm... 🤔
 Sachant que
 ["le plus que tes tests ressemblent à la façon dont ton application est utilisée, le plus de confiance ils peuvent te donner"](https://twitter.com/kentcdodds/status/977018512689455106), ce serait intelligent de notre part de considérer le fait que nos utilisateurs se fichent de ce que sont nos class names.
 
-Alors, imaginons que l'on a un testeur manuel dans notre équipe et qu'on lui écrit des instructions pour qu'il puisse tester la page pour nous. 
+Alors, imaginons que l'on a un testeur manuel dans notre équipe et qu'on lui écrit des instructions pour qu'il puisse tester la page pour nous.
 Que diraient ces instructions?
 
 1. va chercher l'élément dont le class name est `username-field`
@@ -122,7 +121,7 @@ Que diraient ces instructions?
 
 « Ah, oui, bonne idée! »
 
-Voici pourquoi la [react-testing-library](https://testing-library.com) possède les requêtes qu'elle a. Elles vous aideront à trouver les éléments de la même façon que les utilisateurs le feraient. Ces requêtes vous permettent de trouver des éléments selon leur 
+Voici pourquoi la [react-testing-library](https://testing-library.com) possède les requêtes qu'elle a. Elles vous aideront à trouver les éléments de la même façon que les utilisateurs le feraient. Ces requêtes vous permettent de trouver des éléments selon leur
 [rôle](https://testing-library.com/docs/dom-testing-library/api-queries#byrole),
 [libellé](https://testing-library.com/docs/dom-testing-library/api-queries#bylabeltext),
 [« placeholder »](https://testing-library.com/docs/dom-testing-library/api-queries#byplaceholdertext),
@@ -134,6 +133,7 @@ Voici pourquoi la [react-testing-library](https://testing-library.com) possède 
 
 Ils sont d'ailleurs énumérés en ordre de [recommendation](https://testing-library.com/docs/guide-which-query). Il y a certainement des compromis avec ces approches, mais si vous deviez
 écrire des instructions pour un testeur manuel en utilisant ces requêtes-ci, ça ressemblerait à quelque chose du genre :
+
 1. Entre un faux username dans le champ texte libellé `username`
 2. Entre un faux password dans le champ libellé `password`
 3. Clique sur le bouton avec le texte `sign in`
@@ -144,32 +144,28 @@ Et cela aiderait à assurer que vous testz votre application de la manière la p
 
 Parfois, on ne peut pas sélectionner un élément par aucune autre requête. Pour ces cas-là, il est recommandé d'utiliser `data-testid` (cependant, il est important de vérifier que vous n'êtes pas en train d'oublier d'utiliser un réel attribut de `rôle` en premier lieu).
 
-Plusieurs personnes qui rencontrent cette situation se demandent pourquoi une requête `getByClassName` n'existe pas. Ce wue je n'aime pas en utilisant les __class names__ pour mes sélecteurs c'est qu'en théorie nous pensons aux noms des __class names__  en fonction de leur style. Alors si on se met à ajouter un tas de __class names__ qui ne sont pas pour le style, ça rend plis difficile de savoir à quoi servent ces __class names__ et si nous pouvons les retirer.
+Plusieurs personnes qui rencontrent cette situation se demandent pourquoi une requête `getByClassName` n'existe pas. Ce wue je n'aime pas en utilisant les **class names** pour mes sélecteurs c'est qu'en théorie nous pensons aux noms des **class names** en fonction de leur style. Alors si on se met à ajouter un tas de **class names** qui ne sont pas pour le style, ça rend plis difficile de savoir à quoi servent ces **class names** et si nous pouvons les retirer.
 
-Puis, si nous essayons simplement de reutiliser des __class names__ que nous utilisons déjà pour le style, nous rencontrerons des problèmes comme celui du bouton ci-haut. _Si tu dois modifier ton test lors d'un refactoring ou d'un nouveau développement, c'est une indication d'un test faible_. Le réel problème c'est que la relation entre le test et le code source est trop implicite. Nous pourrions solitionner ce problème si nous faisions en sorte de **la rendre plus explicite.**
+Puis, si nous essayons simplement de reutiliser des **class names** que nous utilisons déjà pour le style, nous rencontrerons des problèmes comme celui du bouton ci-haut. _Si tu dois modifier ton test lors d'un refactoring ou d'un nouveau développement, c'est une indication d'un test faible_. Le réel problème c'est que la relation entre le test et le code source est trop implicite. Nous pourrions solitionner ce problème si nous faisions en sorte de **la rendre plus explicite.**
 
 Si nous pouvions ajouter des meta données à l'élément que nous tentons de sélectionner, ça réglerait le problème. Et bien devinez quoi, il existe un API exprès! C'est les attributs `data-`! Par exemple :
 
-
 ```jsx
 function UsernameDisplay({ user }) {
-  return <strong data-testid="username">{user.username}</strong>;
+  return <strong data-testid="username">{user.username}</strong>
 }
 ```
 
 Et ensuite notre test pourrait faire :
 
-
 ```javascript
-const usernameEl = getByTestId("username");
+const usernameEl = getByTestId("username")
 ```
 
-C'est également intéressant pour les 
+C'est également intéressant pour les
 [tests end to end](https://github.com/kentcdodds/jest-cypress-react-babel-webpack/blob/1c842dff85cd83953e86a6f1a48653b15fb3a4d5/cypress/e2e/register.js#L20).
 
 Alors je propose que vous l'utilisiez pour ces tests là aussi! Par contre, certaines personnes m'ont mentionné qu'ils avaient des doutes quant à mettre ces attributs en production... Si c'est vous, veuillez s'il vous plaît vous poser la question si cest réellement un problème pour vous (parce qu'honnêtement, ce n'est pas un problème aussi gros que vous le pensez). Si vous le désirez vraiment, vous pouvez retirer ces atteibuts en compilant avec [`babel-plugin-react-remove-properties`](https://www.npmjs.com/package/babel-plugin-react-remove-properties).
-
-
 
 ## Conclusion
 

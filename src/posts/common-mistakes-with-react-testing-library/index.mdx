@@ -2,7 +2,9 @@
 slug: "common-mistakes-with-react-testing-library"
 title: "Erreurs fréquentes avec React Testing Library"
 date: "2020-05-04"
+translation-date: "2021-07-10"
 author: "Kent C. Dodds"
+translator: Louis-Bernard Poulin Martel
 description: "Quelques erreurs que les gens font fréquemment en utilisant React Testing Library."
 categories:
   - "testing"
@@ -12,18 +14,20 @@ keywords:
   - "react testing library"
   - "dom testing library"
   - "async"
-bannerUrl: "https://res.cloudinary.com/kentcdodds-com/image/upload/v1625032606/kentcdodds.com/content/blog/common-mistakes-with-react-testing-library/banner.jpg"
+banner: "https://res.cloudinary.com/kentcdodds-com/image/upload/v1625032606/kentcdodds.com/content/blog/common-mistakes-with-react-testing-library/banner.jpg"
 bannerCredit: "Photo by [Sarah Kilian](https://unsplash.com/photos/52jRtc2S_VE)"
 ---
 
-Current Available Translations:
+Traductions libres présentement disponibles :
 
-- [Brazilian Portuguese](https://giovanisleite.dev/erros-comuns-com-react-testing-library)
-- [Korean](https://seongry.github.io/2021/06-20-common-mistakes-with-rty/)
+- [Portugais brésilien](https://giovanisleite.dev/erros-comuns-com-react-testing-library)
+- [Coréen](https://seongry.github.io/2021/06-20-common-mistakes-with-rty/)
 
-Salut 👋 J'ai créé la React Testing Library parce que je n'étais pas satisfait de la réalité des tests du moment. Ça a grossi vers une librairie de tests sur le DOM, et maintenant nous avons des implémentations de la librairie de test (« wrappers ») pour les frameworks Javascript les plus populaires, ainsi que pour les outils de test qui visent les éléments du DOM (et même pour ceux qui visent d'autres types d'éléments).
+Salut 👋 J'ai créé la React Testing Library parce que je n'étais pas satisfait de la réalité des tests du moment.
 
-Nous avons apporté différents changements à l'API depuis le debut, et nous avons découvert des façons de faire sous-optimales. Malgré nos efforts à documenter les « meilleures façons de faire » pour utiliser les outils que l'on propose, je vois encore des articles de blog et des tests écrits en suivant ces façons de faire sous-optimales, et j'aimerais passer en revue quelques une d'entre elles, expliquer pourquoi elles ne sont pas idéales et de quelle façon ameliorer vos tests pour eviter ces pièges de conception.
+Ça a grossi vers une librairie de tests sur le DOM, et maintenant nous avons des implémentations de la librairie de test (« wrappers ») pour les frameworks Javascript les plus populaires, ainsi que pour les outils de test qui visent les éléments du DOM (et même pour ceux qui visent d'autres types d'éléments).
+
+Nous avons apporté différents changements à l'API depuis le début, et nous avons découvert des façons de faire sous-optimales. Malgré nos efforts à documenter les « meilleures façons de faire » pour utiliser les outils que l'on propose, je vois encore des articles de blog et des tests écrits en suivant ces façons de faire sous-optimales, et j'aimerais passer en revue quelques une d'entre elles, expliquer pourquoi elles ne sont pas idéales et de quelle façon ameliorer vos tests pour eviter ces pièges de conception.
 
 > Note: Je vais classifier chacune d'elles selon leur ordre d'importance :
 >
