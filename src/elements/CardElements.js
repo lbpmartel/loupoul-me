@@ -11,7 +11,8 @@ export const CardsContainer = styled.main`
 
 export const BigCardWrapper = styled.div`
    grid-column: 2 / span 10;
-   height: 300px;
+   min-height: 100px;
+   height: auto;
 
    background: #FFFFFF;
    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 10px rgba(187, 225, 250, 0.25);
@@ -24,8 +25,8 @@ export const BigCardWrapper = styled.div`
 
 export const BlogPreviewCardWrapper = styled.div`
    margin-top: 2rem;
-   padding: 1rem;
+   padding: 40px 80px 60px 80px;
    display: flex;
    flex-direction: column;
-   align-items: center;
+   align-items: left;
 `
