@@ -6,4 +6,5 @@ export * from "./FooterElements.js";
 export * from "./IntroElements.js";
 export * from "./NavElements.js";
 export * from "./PaginationElements.js";
+export * from "./PostElements.js";
 export * from "./TypographyElements.js";
