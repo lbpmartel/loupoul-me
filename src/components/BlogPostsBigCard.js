@@ -30,8 +30,9 @@ export const BlogPostsBigCard = () => {
             <BigCard>
                { data.allMdx.edges.map(post =>
                   <BlogPreviewCard
+                     key={ post.node.frontmatter.slug }
                      title={ post.node.frontmatter.title }
-                     excerpt={ post.node.frontmatter.excerpt }
+                     description={ post.node.frontmatter.description }
                      slug={ post.node.frontmatter.slug }
                   />
                ) }
