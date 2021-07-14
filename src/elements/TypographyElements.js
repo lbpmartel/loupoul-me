@@ -5,6 +5,8 @@ export const P = styled.p`
    margin: ${ props => props.margin ? props.margin : 0 };
    font-size: ${ props => {
       switch (props.size) {
+         case "large":
+            return "1.25rem";
          case "medium":
             return "1.125rem";
          case "small":
@@ -18,6 +20,8 @@ export const P = styled.p`
 
    line-height: ${ props => {
       switch (props.size) {
+         case "large":
+            return "1.7rem";
          case "medium":
             return "1.4375rem";
          case "small":
