@@ -4,6 +4,7 @@ export * from "./BlogPreviewCard.js";
 export * from "./Button.js";
 export * from "./CardsSection.js";
 export * from "./Container.js";
+export * from "./Code.js";
 export * from "./Footer.js";
 export * from "./Intro.js";
 export * from "./IntroBigCard.js";
