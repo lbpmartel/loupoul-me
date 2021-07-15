@@ -2,7 +2,7 @@
 
 const Theme = {
    fonts: {
-      main: "Muli, sans-serif",
+      main: "Heebo",
       code: "Roboto Mono, monospace",
    },
    colors: {

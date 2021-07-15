@@ -4,7 +4,6 @@ export const PostWrapper = styled.div`
    grid-column: 2 / span 10;
    min-height: 100px;
    height: auto;
-   margin-top: 2rem;
    padding: 40px 80px;
 
    h1:not(:first-child),
@@ -73,13 +72,18 @@ export const PostWrapper = styled.div`
       text-decoration: line-through;
    }
 
-   blockquote p {
+   blockquote {
+      margin-top: 2rem;
       font-style: italic;
-      font-size: 1.5rem;
-      line-height: 2.125rem;
-      text-align: center;
-      max-width: 36rem;
-      margin: 3rem auto;
+      border-left: 5px solid ${ props => props.theme.colors.main1 };
+
+      p {
+         padding-left: 1rem;
+         font-size: 1.125rem;
+         line-height: 1.5rem;
+         text-align: left;
+         margin: 1rem auto;
+      }
    }
 
    ul,
