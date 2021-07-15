@@ -13,3 +13,4 @@ export * from "./Nav.js";
 export * from "./Pagination.js";
 export * from "./Post.js";
 export * from "./TopBackground.js";
+export * from "./SimpleContainer.js";

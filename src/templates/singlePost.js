@@ -6,18 +6,18 @@ import { MDXRenderer } from "gatsby-plugin-mdx"
 
 import { H1 } from "../elements"
 
-import { Container, Post } from "../components"
+import { SimpleContainer, Post } from "../components"
 
 const singlePost = ({ data }) => {
    const bannerImageURL = data.mdx.frontmatter.banner;
 
    return (
-      <Container>
+      <SimpleContainer>
          <Post>
             <H1 margin="0 0 2rem 0">{ data.mdx.frontmatter.title }</H1>
             <MDXRenderer>{ data.mdx.body }</MDXRenderer>
          </Post>
-      </Container>
+      </SimpleContainer>
    )
 }
 
