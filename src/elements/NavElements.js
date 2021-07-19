@@ -5,6 +5,7 @@ export const NavWrapper = styled.nav`
    grid-row: 1 / 2;
    display: flex;
    align-items: center;
+   background: ${ props => props.theme.colors.main1 };
 
    & img {
       height: 30px;
