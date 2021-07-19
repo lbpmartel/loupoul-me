@@ -20,7 +20,12 @@
    text-transform: uppercase;
    top: 0;
  }
- .gatsby-highlight span {
+
+ .gatsby-highlight pre {
+    font-size: 1rem;
+    line-height: 1.5rem;
+ }
+ .gatsby-highlight .line-number {
    display: inline-block;
    width: 2em;
    user-select: none;
