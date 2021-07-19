@@ -56,12 +56,17 @@ export const PostWrapper = styled.div`
    } 
 
    a {
+      font-size: 1.125rem;
+      text-decoration: none;
       color: ${ props => props.theme.colors.main1 };
+   }
+
+   a:hover {
       text-decoration: underline;
    }
 
    strong {
-      font-weight: 700;
+      font-weight: 500;
    }
 
    em {
@@ -100,9 +105,10 @@ export const PostWrapper = styled.div`
       font-family: ${ props => props.theme.fonts.code };
       font-size: 1rem;
       line-height: 1.875rem;
-      color: ${ props => props.theme.colors.light1 };
-      background-color: ${ props => props.theme.colors.dark3 };
+      color: ${ props => props.theme.colors.dark2 };
+      background-color: ${ props => props.theme.colors.light3 };
       padding: 0 0.3rem;
+      border-radius: 3px;
    }
 
    hr {
