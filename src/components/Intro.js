@@ -16,7 +16,7 @@ export const Intro = () => {
             <IntroPrimaryTextWrapper>
                Salut, moi c'est
                <br />
-               Louis-Bernard&nbsp;Poulin&nbsp;Martel,
+               Louis-Bernard Poulin Martel,
                <br />
                développeur Front End
             </IntroPrimaryTextWrapper>

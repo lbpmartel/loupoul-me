@@ -12,7 +12,6 @@ export const TopBackgroundWrapper = styled.div`
    }
 `
 
-
 export const NavBackground = styled.div`
    grid-column: 1 / span 12;
    grid-row: 1 / 2;

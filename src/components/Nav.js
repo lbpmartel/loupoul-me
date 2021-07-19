@@ -1,7 +1,7 @@
 import React from "react"
 import { useStaticQuery, Link, graphql } from "gatsby"
 
-import { NavWrapper } from "../elements"
+import { NavWrapper, NavBackground } from "../elements"
 
 export const Nav = () => {
    const data = useStaticQuery(graphql`
@@ -13,10 +13,13 @@ export const Nav = () => {
    `)
 
    return (
-      <NavWrapper>
-         <Link to="/">
-            <img src={ data.logo.publicURL } alt="loupoul.me" />
-         </Link>
-      </NavWrapper>
+      <>
+         <NavBackground />
+         <NavWrapper>
+            <Link to="/">
+               <img src={ data.logo.publicURL } alt="loupoul.me" />
+            </Link>
+         </NavWrapper>
+      </>
    )
 }
