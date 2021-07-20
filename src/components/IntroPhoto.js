@@ -10,7 +10,7 @@ export const IntroPhoto = () => {
       {
          file(relativePath: { eq: "louis_cropped_2.jpg" }) {
             childImageSharp {
-               gatsbyImageData(layout: FIXED, width: 320)
+               gatsbyImageData(layout: CONSTRAINED, width: 320)
             }
          }
       }
