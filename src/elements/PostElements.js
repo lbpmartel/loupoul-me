@@ -61,6 +61,11 @@ export const PostWrapper = styled.div`
       color: ${ props => props.theme.colors.main1 };
    }
 
+   img {
+      max-width: 100%;
+      margin: 2rem;
+   }
+
    a:hover {
       text-decoration: underline;
    }
