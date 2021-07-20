@@ -1,5 +1,19 @@
 import styled from "styled-components"
 
+export const A = styled.a`
+   color: ${ props => props.theme.colors.dark1 };
+   font-family: heebo;
+   text-decoration: none;
+   border-bottom: 3px solid ${ props => props.theme.colors.main1 };
+   display: inline-block;
+   height: 1.6rem;
+   &:hover {
+      border-bottom: 3px solid ${ props => props.theme.colors.main2 } !important;
+      display: inline-block;
+      height: 1.6rem;
+   }
+`
+
 export const P = styled.p`
    font-family: heebo;
    margin: ${ props => props.margin ? props.margin : 0 };
