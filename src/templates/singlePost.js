@@ -6,15 +6,19 @@ import { MDXRenderer } from "gatsby-plugin-mdx"
 
 import { H1 } from "../elements"
 
-import { SimpleContainer, Post } from "../components"
+import { SimpleContainer, Post, PostImage } from "../components"
 
 const singlePost = ({ data }) => {
-   const bannerImageURL = data.mdx.frontmatter.banner;
+   const bannerImageURL = "/posts/" + data.mdx.frontmatter.banner.relativePath
 
    return (
       <SimpleContainer>
          <Post>
             <H1 margin="0 0 2rem 0">{ data.mdx.frontmatter.title }</H1>
+            <img
+               src={ bannerImageURL }
+               alt="new"
+            />
             <MDXRenderer>{ data.mdx.body }</MDXRenderer>
          </Post>
       </SimpleContainer>
@@ -32,7 +36,9 @@ export const pageQuery = graphql`
             title
             description
             translation_date
-            banner
+            banner {
+               relativePath
+            }
             bannerCredit
             author
          } 
