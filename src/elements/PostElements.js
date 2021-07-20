@@ -22,7 +22,7 @@ export const PostWrapper = styled.div`
    }
 
    h2 {
-      font-size: 1.5rem;
+      font-size: 1.75rem;
       line-height: 1.875rem;
       font-weight: 400;
    }
@@ -141,5 +141,6 @@ export const PostWrapper = styled.div`
 
    @media ${ props => props.theme.breakpoints.tablet } {
       grid-column:2 / span 4;
+      padding: 10px;
    }
 `

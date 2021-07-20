@@ -8,7 +8,7 @@ export const IntroContainerWrapper = styled.div`
    justify-content: space-between;
 
    @media ${ props => props.theme.breakpoints.tablet } {
-      grid-column:2 / span 4;
+      grid-column: 2 / span 4;
       flex-direction: column;
    }
 `
