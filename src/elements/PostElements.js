@@ -5,6 +5,7 @@ export const PostWrapper = styled.div`
    min-height: 100px;
    height: auto;
    padding: 40px 80px;
+   max-width: 800px;
 
    h1:not(:first-child),
    h2,
@@ -19,6 +20,9 @@ export const PostWrapper = styled.div`
       font-size: 2.25rem;
       line-height: 2.5rem;
       font-weight: 400;
+      text-align: center;
+      font-family: Montserrat;
+      font-weight: 500;
    }
 
    h2 {
@@ -44,7 +48,9 @@ export const PostWrapper = styled.div`
    h6 {
       font-size: 1.125rem;
       line-height: 1.875rem;
-      font-weight: 400;
+      font-family: Montserrat;
+      font-style: italic;
+      font-weight: 200;
    }
 
    p {
