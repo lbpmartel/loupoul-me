@@ -18,10 +18,7 @@ banner: "./images/banner.jpg"
 bannerCredit: "Photo by [Sarah Kilian](https://unsplash.com/photos/52jRtc2S_VE)"
 ---
 
-Traductions libres présentement disponibles :
-
-- [Portugais brésilien](https://giovanisleite.dev/erros-comuns-com-react-testing-library)
-- [Coréen](https://seongry.github.io/2021/06-20-common-mistakes-with-rty/)
+###### Version originale : [«Common mistakes with React Testing Library»](https://kentcdodds.com/blog/common-mistakes-with-react-testing-library) de Kent C. Dodds
 
 Salut 👋 J'ai créé la React Testing Library parce que je n'étais pas satisfait de la réalité des tests du moment.
 
@@ -38,6 +35,7 @@ Nous avons apporté différents changements à l'API depuis le début, et nous a
 > - haute: écoutez définitivement ce conseil! Vous manqueriez fort probablement de certitude dans vos tests ou pourriez avoor des tests problématiques.
 
 ## Ne pas utiliser l'extension Testing Library ESLint
+
 ## Not using Testing Library ESLint plugins
 
 > Importance: moyenne
@@ -63,7 +61,7 @@ const { rerender } = render(<Example prop="1" />)
 rerender(<Example prop="2" />)
 ```
 
-Le nom `wrapper` est un « déchet résiduel » d'une utilisation de Enzyme et nous navons pas besoin de ça ici. La valeur de retour de `render` n'enveloppe rien du tout. C'est simplement une collection d'outils utilitaires que (merci au prochain point) vous ne devriez pas avoir à utiliser fréquemment de toute façon. 
+Le nom `wrapper` est un « déchet résiduel » d'une utilisation de Enzyme et nous navons pas besoin de ça ici. La valeur de retour de `render` n'enveloppe rien du tout. C'est simplement une collection d'outils utilitaires que (merci au prochain point) vous ne devriez pas avoir à utiliser fréquemment de toute façon.
 
 **Conseil: destructurez ce dont vous avez besoin de l'appel de `render` ou appelez la variable `view`.**
 
@@ -107,9 +105,6 @@ const errorMessageNode = screen.getByRole("alert")
 ```javascript
 import { render, screen } from "@testing-library/react"
 ```
-
-
-
 
 The benefit of using `screen` is you no longer need to keep the `render` call
 destructure up-to-date as you add/remove the queries you need. You only need to
