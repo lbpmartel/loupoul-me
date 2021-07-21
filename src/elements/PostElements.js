@@ -5,7 +5,6 @@ export const PostWrapper = styled.div`
    min-height: 100px;
    height: auto;
    padding: 40px 80px;
-   max-width: 800px;
 
    h1:not(:first-child),
    h2,
