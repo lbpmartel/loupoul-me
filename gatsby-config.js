@@ -50,20 +50,8 @@ module.exports = {
          resolve: `gatsby-plugin-google-fonts`,
          options: {
             fonts: [
-               `roboto mono`,
-               `muli\:400,400i,700,700i`,
-               `heebo\:200,400,500,700`
-            ],
-            display: "swap",
-         },
-      },
-      {
-         resolve: `gatsby-plugin-google-fonts`,
-         options: {
-            fonts: [
-               `roboto mono`,
-               `muli\:400,400i,700,700i`,
-               `heebo`
+               `heebo\:200,400,500,700`,
+               `Montserrat\:200,200i,500,500i`
             ],
             display: "swap",
          },
