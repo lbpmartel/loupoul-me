@@ -5,6 +5,12 @@
  */
 
 module.exports = {
+   siteMetadata: {
+      title: "loupoul's landing page",
+      description: "Simple landing page + some translated blog posts, all created with Gatsby and MDX",
+      url: "https://loupoul.me",
+      image: "/src/images/louis_cropped_2.jpg"
+   },
    /* Your site config here */
    plugins: [
       {

@@ -6,7 +6,7 @@ import { MDXRenderer } from "gatsby-plugin-mdx"
 
 import { H1 } from "../elements"
 
-import { SimpleContainer, Post } from "../components"
+import { SimpleContainer, Post, Seo } from "../components"
 
 import { GatsbyImage } from "gatsby-plugin-image"
 
@@ -14,8 +14,15 @@ import { GatsbyImage } from "gatsby-plugin-image"
 const singlePost = ({ data }) => {
    const img = data.mdx.frontmatter.banner.childImageSharp.gatsbyImageData;
 
+   const seoImage = data.mdx.frontmatter.banner.publicURL
+
    return (
       <SimpleContainer>
+         <Seo
+            title={ data.mdx.frontmatter.title }
+            image={ seoImage }
+            description={ data.mdx.frontmatter.description }
+         />
          <Post>
             <H1 margin="0 0 2rem 0">{ data.mdx.frontmatter.title }</H1>
             <GatsbyImage
@@ -45,6 +52,7 @@ export const pageQuery = graphql`
             description
             translation_date
             banner {
+               publicURL
                childImageSharp {
                   gatsbyImageData(layout: CONSTRAINED)
                }

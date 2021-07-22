@@ -24,10 +24,10 @@ export const Footer = () => {
       <FooterWrapper>
          <FooterSocialWrapper>
             <FooterSocialIcons>
-               <a href="https://facebook.com" target="_blank" rel="noopened noreferrer">
+               <a href="https://www.linkedin.com/in/loupoul" target="_blank" rel="noopened noreferrer">
                   <img src={ data.linkedin.publicURL } alt="LinkedIn logo" />
                </a>
-               <a href="https://github.com" target="_blank" rel="noopened noreferrer">
+               <a href="https://github.com/lbpmartel/" target="_blank" rel="noopened noreferrer">
                   <img src={ data.github.publicURL } alt="GitHub logo" />
                </a>
             </FooterSocialIcons>

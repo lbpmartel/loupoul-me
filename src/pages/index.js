@@ -5,7 +5,8 @@ import {
    CardsSection,
    Container,
    TopBackground,
-   Intro
+   Intro,
+   Seo
 } from "../components"
 
 import { GlobalWrapper } from "../elements"
@@ -13,6 +14,7 @@ import { GlobalWrapper } from "../elements"
 const IndexPage = () => {
    return (
       <Container>
+         <Seo />
          <GlobalWrapper />
          <TopBackground />
          <Intro />
