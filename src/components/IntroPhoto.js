@@ -22,6 +22,9 @@ export const IntroPhoto = () => {
             alt="loupoul"
             style={ {
                borderRadius: "50%"
+            } }
+            imgStyle={ {
+               borderRadius: "50%"
             } } />
       </IntroImageWrapper>
    )
