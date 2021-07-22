@@ -19,6 +19,8 @@ export const IntroImageWrapper = styled.div`
    @media ${ props => props.theme.breakpoints.tablet } {
       display: flex;
       justify-content: center;      
+      padding: 0;
+      margin-bottom: 1.5rem;
    }
 `
 export const IntroTextWrapper = styled.div`
@@ -35,7 +37,8 @@ export const IntroPrimaryTextWrapper = styled.h1`
 
    @media ${ props => props.theme.breakpoints.tablet } {
       display: flex;
-      justify-content: center;      
+      justify-content: center;   
+      text-align: center;   
    }
 `
 
