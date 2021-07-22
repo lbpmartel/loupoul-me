@@ -31,7 +31,7 @@ export const BlogPostsBigCard = () => {
          render={ data => (
             <BigCard>
                <H2>Blog</H2>
-               <P margin="1rem 0 1rem 0" size="small">Ces articles m'ont été utiles par le passé. Pour ajouter un semblant de contenu à cette page, j'ai décidé de les traduire en français. Je ne détiens donc aucun droit d'auteur sur ces articles.</P>
+               <P margin="1rem 0 1rem 0" size="small">Ces articles m'ont été utiles par le passé. Pour ajouter un semblant de contenu à cette page, j'ai décidé de les traduire en français. Je ne détiens donc aucun droit d'auteur sur ceux-ci.</P>
                { data.allMdx.edges.map(post =>
                   <BlogPreviewCard
                      key={ post.node.frontmatter.slug }
