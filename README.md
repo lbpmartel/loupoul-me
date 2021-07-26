@@ -1,6 +1,6 @@
 # loupoul-me
 
-## Basic landing page + some translated blog posts
+### Basic landing page + some translated blog posts
 
 # Intro
 
