@@ -17,7 +17,7 @@ export const Footer = () => {
    const generateCopyrightTextWithYear = () => {
       let newDate = new Date()
       let year = newDate.getFullYear();
-      return `© ${ year } Louis-Bernard Poulin Martel. All rights reserved.`
+      return `© ${ year } Louis-Bernard Poulin Martel. Tous droits réservés.`
    }
 
    return (
