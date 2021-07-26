@@ -7,7 +7,6 @@ export const PostWrapper = styled.div`
    padding: 40px 80px;
 
    h1:not(:first-child),
-   h2,
    h3,
    h4,
    h5,
@@ -25,9 +24,10 @@ export const PostWrapper = styled.div`
    }
 
    h2 {
-      font-size: 1.75rem;
+      margin-top: 3.1rem;
+      font-size: 2rem;
       line-height: 1.875rem;
-      font-weight: 400;
+      font-weight: 500;
    }
    h3 {
       font-size: 1.375rem;
