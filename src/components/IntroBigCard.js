@@ -24,10 +24,7 @@ export const IntroBigCard = () => {
             pour assurer la livraison d'applications web de qualité.
             <br />
             <br />
-            Si vous voulez plus d'information, vous pouvez me contacter sur <A href="https://www.linkedin.com/in/loupoul/">LinkedIn</A> 😊.
-            <br />
-            <br />
-            À part ça, je suis nouvellement papa 👶.
+            Si vous voulez plus d'informations, vous pouvez me contacter sur <A href="https://www.linkedin.com/in/loupoul/">LinkedIn</A> 😊.
          </P>
       </BigCard>
    )
